@@ -2,11 +2,15 @@ package org.example;
 
 import com.alibaba.excel.ExcelReader;
 import com.alibaba.excel.ExcelWriter;
+import com.alibaba.excel.event.AnalysisEventListener;
 import com.alibaba.excel.metadata.Sheet;
 import com.alibaba.excel.support.ExcelTypeEnum;
-import com.github.Dorae132.easyutil.easyexcel.ExcelUtils;
 
 import java.io.*;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Hello world!
@@ -14,58 +18,46 @@ import java.io.*;
  */
 public class App 
 {
+    private List<ReserveInfo> haiGuan;
     public static void main( String[] args ) throws FileNotFoundException {
-        System.out.println( "Hello World!" );
-        if(args.length == 0) {
-            System.out.println("请输入文件名");
-            System.exit(1);
+        System.out.println( "开始!" );
+        String readPath = "/Users/liuyu/Downloads/data.xls";
+        String name = LocalDateTime.now().getMonthValue() + "-" + LocalDateTime.now().getDayOfMonth() + "-";
+        if (LocalDateTime.now().getHour() < 12) {
+            name = name + "午餐";
+        }  else {
+            name = name + "晚餐";
         }
-//        String path = args[0];
-        String path = "C:\\Users\\liuy655\\Downloads\\data.xls";
-        testExcel2003NoModel(path);
-        writeExcel(path);
+        String writepath = "/Users/liuyu/Desktop/chifan/"+ name +".xls";
+        List<Object> objects = ExcelUtil.readLessThan1000RowBySheet(readPath, null);
+
+        ArrayList<ReserveInfo> reserveInfos = new ArrayList<>();
+        objects.stream().forEach(it -> reserveInfos.add((ReserveInfo)it));
+        List<ReserveInfo> haiGuan = reserveInfos.stream().filter(it -> "海关".equals(it.getZone())).collect(Collectors.toList());
+        List<ReserveInfo> xiangFu = reserveInfos.stream().filter(it -> "翔福".equals(it.getZone())).collect(Collectors.toList());
+        List<ReserveInfo> anXin = reserveInfos.stream().filter(it -> "安歆".equals(it.getZone())).collect(Collectors.toList());
+        List<ReserveInfo> renCai = reserveInfos.stream().filter(it -> "人才公寓".equals(it.getZone())).collect(Collectors.toList());
+        List<ReserveInfo> YHW = reserveInfos.stream().filter(it -> "悦海湾".equals(it.getZone())).collect(Collectors.toList());
+        List<ReserveInfo> YJY = reserveInfos.stream().filter(it -> "研究院".equals(it.getZone())).collect(Collectors.toList());
+
+        System.out.println(objects);
+
+        ArrayList<ExcelUtil.MultipleSheelPropety> multipleSheelPropeties = new ArrayList<>();
+        multipleSheelPropeties.add(new ExcelUtil.MultipleSheelPropety(reserveInfos, new Sheet(1, 1, ReserveInfo.class, "总表(" + reserveInfos.size() + ")", null)));
+        multipleSheelPropeties.add(new ExcelUtil.MultipleSheelPropety(haiGuan, new Sheet(2, 1, ReserveInfo.class, "海关(" + haiGuan.size() + ")", null)));
+        multipleSheelPropeties.add(new ExcelUtil.MultipleSheelPropety(xiangFu, new Sheet(3, 1, ReserveInfo.class, "翔福(" + xiangFu.size() + ")", null)));
+        multipleSheelPropeties.add(new ExcelUtil.MultipleSheelPropety(xiangFu, new Sheet(4, 1, ReserveInfo.class, "安歆(" + anXin.size() + ")", null)));
+        multipleSheelPropeties.add(new ExcelUtil.MultipleSheelPropety(xiangFu, new Sheet(5, 1, ReserveInfo.class, "人才公寓(" + renCai.size() + ")", null)));
+        multipleSheelPropeties.add(new ExcelUtil.MultipleSheelPropety(xiangFu, new Sheet(6, 1, ReserveInfo.class, "悦海湾(" + YHW.size() + ")", null)));
+        multipleSheelPropeties.add(new ExcelUtil.MultipleSheelPropety(xiangFu, new Sheet(7, 1, ReserveInfo.class, "研究院(" + YJY.size() + ")", null)));
+        ExcelUtil.writeWithMultipleSheel(writepath, multipleSheelPropeties);
+
         System.out.println("处理完毕");
-    }
-    public static void testExcel2003NoModel(String fileName) throws FileNotFoundException {
-        File file = new File(fileName);
-        InputStream fileInputStream = new FileInputStream(file.getPath());
-        try {
-            // 解析每行结果在listener中处理
-            ExcelListener listener = new ExcelListener();
 
-            ExcelReader excelReader = new ExcelReader(fileInputStream, ExcelTypeEnum.XLS, null, listener, true);
-            excelReader.read(new Sheet(1, 2, ReserveInfo.class));
-        } catch (Exception e) {
+        new File(readPath).delete();
+        System.out.println("删除data.xls");
 
-        } finally {
-            try {
-                fileInputStream.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
 
     }
 
-    public static void writeExcel(String fileName) throws FileNotFoundException {
-        OutputStream out = new FileOutputStream(fileName);
-        try {
-            ExcelWriter writer = new ExcelWriter(out, ExcelTypeEnum.XLSX, true);
-            ExcelListener excelListener = new ExcelListener();
-            //写第一个sheet, sheet1  数据全是List<String> 无模型映射关系
-            Sheet sheet1 = new Sheet(2, 0, ReserveInfo.class, "海关（" +excelListener.getHaiGuan().size() + ")", null);
-//            sheet1.setSheetName("海关（" +excelListener.getHaiGuan().size() + ")");
-            writer.write(excelListener.getHaiGuan(), sheet1);
-            System.out.println("海关写入完毕");
-            writer.finish();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                out.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 }
