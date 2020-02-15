@@ -1,5 +1,6 @@
 package org.example;
 
+import com.alibaba.excel.EasyExcelFactory;
 import com.alibaba.excel.ExcelReader;
 import com.alibaba.excel.ExcelWriter;
 import com.alibaba.excel.event.AnalysisEventListener;
@@ -22,7 +23,7 @@ public class App
     public static void main( String[] args ) throws FileNotFoundException {
         System.out.println( "开始!" );
         String readPath = "/Users/liuyu/Downloads/data.xls";
-        String name = LocalDateTime.now().getMonthValue() + "-" + LocalDateTime.now().getDayOfMonth() + "-";
+        String name = LocalDateTime.now().getMonthValue() + "-" + LocalDateTime.now().getDayOfMonth() + "日";
         if (LocalDateTime.now().getHour() < 12) {
             name = name + "午餐";
         }  else {
@@ -38,7 +39,10 @@ public class App
         List<ReserveInfo> anXin = reserveInfos.stream().filter(it -> "安歆".equals(it.getZone())).collect(Collectors.toList());
         List<ReserveInfo> renCai = reserveInfos.stream().filter(it -> "人才公寓".equals(it.getZone())).collect(Collectors.toList());
         List<ReserveInfo> YHW = reserveInfos.stream().filter(it -> "悦海湾".equals(it.getZone())).collect(Collectors.toList());
-        List<ReserveInfo> YJY = reserveInfos.stream().filter(it -> "研究院".equals(it.getZone())).collect(Collectors.toList());
+        List<ReserveInfo> YJY = reserveInfos.stream().filter(it -> "研究院".equals(it.getZone()) || "研究院3号楼".equals(it.getZone())).collect(Collectors.toList());
+
+        List<NameInfo> nameInfos = new ArrayList<>();
+        reserveInfos.stream().forEach(it -> nameInfos.add(new NameInfo(it.getNum(), it.getName())));
 
         System.out.println(objects);
 
@@ -52,6 +56,13 @@ public class App
         multipleSheelPropeties.add(new ExcelUtil.MultipleSheelPropety(xiangFu, new Sheet(7, 1, ReserveInfo.class, "研究院(" + YJY.size() + ")", null)));
         ExcelUtil.writeWithMultipleSheel(writepath, multipleSheelPropeties);
 
+        String writepath2 = "/Users/liuyu/Desktop/chifan/"+ name +"订餐人员名单.xls";
+        ExcelUtil.writeWithTemplate(writepath2, nameInfos);
+        System.out.println("生成名单");
+
+        String writepath3 = "/Users/liuyu/Desktop/chifan/"+ name +"研究院订餐人员名单.xls";
+        ExcelUtil.writeWithTemplate(writepath3, YJY);
+        System.out.println("生成研究院名单");
         System.out.println("处理完毕");
 
         new File(readPath).delete();
