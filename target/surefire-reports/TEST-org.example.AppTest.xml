@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="org.example.AppTest" time="0.025" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="org.example.AppTest" time="0.026" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="gopherProxySet" value="false"/>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
@@ -17,7 +17,7 @@
     <property name="user.country" value="CN"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home/jre/lib"/>
-    <property name="sun.java.command" value="/Users/liuyu/IdeaProjects/chifan/target/surefire/surefirebooter7780069980853145287.jar /Users/liuyu/IdeaProjects/chifan/target/surefire 2020-02-15T23-44-58_772-jvmRun1 surefire3655997094830550256tmp surefire_01610831331932402298tmp"/>
+    <property name="sun.java.command" value="/Users/liuyu/IdeaProjects/chifan/target/surefire/surefirebooter754640137954673960.jar /Users/liuyu/IdeaProjects/chifan/target/surefire 2020-02-16T12-52-26_345-jvmRun1 surefire420074318184418692tmp surefire_09055961501070780645tmp"/>
     <property name="surefire.test.class.path" value="/Users/liuyu/IdeaProjects/chifan/target/test-classes:/Users/liuyu/IdeaProjects/chifan/target/classes:/Users/liuyu/.m2/repository/junit/junit/4.11/junit-4.11.jar:/Users/liuyu/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/liuyu/.m2/repository/com/alibaba/easyexcel/1.1.2-beat1/easyexcel-1.1.2-beat1.jar:/Users/liuyu/.m2/repository/org/apache/poi/poi/3.17/poi-3.17.jar:/Users/liuyu/.m2/repository/commons-codec/commons-codec/1.10/commons-codec-1.10.jar:/Users/liuyu/.m2/repository/org/apache/commons/commons-collections4/4.1/commons-collections4-4.1.jar:/Users/liuyu/.m2/repository/org/apache/poi/poi-ooxml/3.17/poi-ooxml-3.17.jar:/Users/liuyu/.m2/repository/com/github/virtuald/curvesapi/1.04/curvesapi-1.04.jar:/Users/liuyu/.m2/repository/cglib/cglib/3.1/cglib-3.1.jar:/Users/liuyu/.m2/repository/org/ow2/asm/asm/4.2/asm-4.2.jar:/Users/liuyu/.m2/repository/com/github/Dorae132/easyutil.easyexcel/1.1.0/easyutil.easyexcel-1.1.0.jar:/Users/liuyu/.m2/repository/org/apache/poi/poi-ooxml-schemas/3.10-FINAL/poi-ooxml-schemas-3.10-FINAL.jar:/Users/liuyu/.m2/repository/org/bluestemsoftware/open/maven/tparty/xerces-impl/2.9.0/xerces-impl-2.9.0.jar:/Users/liuyu/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar:/Users/liuyu/.m2/repository/org/apache/xmlbeans/xmlbeans/2.6.0/xmlbeans-2.6.0.jar:/Users/liuyu/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar:/Users/liuyu/.m2/repository/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar:/Users/liuyu/.m2/repository/com/google/guava/guava/18.0/guava-18.0.jar:/Users/liuyu/.m2/repository/org/apache/commons/commons-lang3/3.6/commons-lang3-3.6.jar:/Users/liuyu/.m2/repository/org/projectlombok/lombok/1.18.12/lombok-1.18.12.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/Users/liuyu"/>
@@ -30,7 +30,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/Users/liuyu/IdeaProjects/chifan/target/surefire/surefirebooter7780069980853145287.jar"/>
+    <property name="surefire.real.class.path" value="/Users/liuyu/IdeaProjects/chifan/target/surefire/surefirebooter754640137954673960.jar"/>
     <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home/jre/classes"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="1.8.0_221-b11"/>
@@ -58,5 +58,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="shouldAnswerWithTrue" classname="org.example.AppTest" time="0.002"/>
+  <testcase name="shouldAnswerWithTrue" classname="org.example.AppTest" time="0.001"/>
 </testsuite>

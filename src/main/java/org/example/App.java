@@ -50,10 +50,10 @@ public class App
         multipleSheelPropeties.add(new ExcelUtil.MultipleSheelPropety(reserveInfos, new Sheet(1, 1, ReserveInfo.class, "总表(" + reserveInfos.size() + ")", null)));
         multipleSheelPropeties.add(new ExcelUtil.MultipleSheelPropety(haiGuan, new Sheet(2, 1, ReserveInfo.class, "海关(" + haiGuan.size() + ")", null)));
         multipleSheelPropeties.add(new ExcelUtil.MultipleSheelPropety(xiangFu, new Sheet(3, 1, ReserveInfo.class, "翔福(" + xiangFu.size() + ")", null)));
-        multipleSheelPropeties.add(new ExcelUtil.MultipleSheelPropety(xiangFu, new Sheet(4, 1, ReserveInfo.class, "安歆(" + anXin.size() + ")", null)));
-        multipleSheelPropeties.add(new ExcelUtil.MultipleSheelPropety(xiangFu, new Sheet(5, 1, ReserveInfo.class, "人才公寓(" + renCai.size() + ")", null)));
-        multipleSheelPropeties.add(new ExcelUtil.MultipleSheelPropety(xiangFu, new Sheet(6, 1, ReserveInfo.class, "悦海湾(" + YHW.size() + ")", null)));
-        multipleSheelPropeties.add(new ExcelUtil.MultipleSheelPropety(xiangFu, new Sheet(7, 1, ReserveInfo.class, "研究院(" + YJY.size() + ")", null)));
+        multipleSheelPropeties.add(new ExcelUtil.MultipleSheelPropety(anXin, new Sheet(4, 1, ReserveInfo.class, "安歆(" + anXin.size() + ")", null)));
+        multipleSheelPropeties.add(new ExcelUtil.MultipleSheelPropety(renCai, new Sheet(5, 1, ReserveInfo.class, "人才公寓(" + renCai.size() + ")", null)));
+        multipleSheelPropeties.add(new ExcelUtil.MultipleSheelPropety(YHW, new Sheet(6, 1, ReserveInfo.class, "悦海湾(" + YHW.size() + ")", null)));
+        multipleSheelPropeties.add(new ExcelUtil.MultipleSheelPropety(YJY, new Sheet(7, 1, ReserveInfo.class, "研究院(" + YJY.size() + ")", null)));
         ExcelUtil.writeWithMultipleSheel(writepath, multipleSheelPropeties);
 
         String writepath2 = "/Users/liuyu/Desktop/chifan/"+ name +"订餐人员名单.xls";

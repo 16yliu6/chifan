@@ -22,15 +22,15 @@ public class ReserveInfo extends BaseRowModel {
     @ExcelProperty(value = "区域", index = 4)
     private String zone;
 
-    @ExcelProperty(value = "报名状态", index = 5)
-    private String status;
+//    @ExcelProperty(value = "报名状态", index = 5)
+//    private String status;
 
-    @ExcelProperty(value = "是否核销", index = 6)
-    private String writeOff;
-
-    @ExcelProperty(value = "备注说明", index = 7)
-    private String remark;
-
-    @ExcelProperty(value = "报名时间", index = 8)
-    private Date time;
+//    @ExcelProperty(value = "是否核销", index = 6)
+//    private String writeOff;
+//
+//    @ExcelProperty(value = "备注说明", index = 7)
+//    private String remark;
+//
+//    @ExcelProperty(value = "报名时间", index = 8)
+//    private Date time;
 }
